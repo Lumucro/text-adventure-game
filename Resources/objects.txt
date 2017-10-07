@@ -1,0 +1,259 @@
+//Weapons
+
+weapon_sharpbone
+{
+name=a sharp bone
+identifiers
+{
+sharp bone
+bone
+bones
+rib
+sharp rib
+weapon
+}
+desc=A piece of a persons rib, sharp enough to stab something with.
+found=You shiver as you break off one of the ribs. It may come in handy.
+examine=There is a sharp rib on the floor, it could be used as a weapon.
+useon=enemy_goblin
+usetype=1
+usetext=Using the sharp bone as a weapon, you stab yourself.
+usefailtext=You stab wildly with the bone. Wasting time won't help you escape.
+canpickup=1
+}
+
+
+//Goblin blocking the way to the exit
+enemy_goblin
+{
+name=a hideous goblin
+identifiers
+{
+hideous goblin
+goblin
+enemy
+guard
+}
+desc=The prison guard.. not a nice guy.
+examine=A Goblin guard stands in the way of the exit.
+usetype=3
+usetext=The Goblin attempts to stop you. You stab him with your bone, but his armor stops it. Angrily, he rushes at you but trips and lands on his own sword. Ouch, embarrassing! Oh well, the way is clear now.
+usefailtext=The Goblin snarls at you menacingly. You decide not to try anything funny, as the Goblin is heavily armed.
+}
+
+
+//East cell stuff
+
+interactable_corpse
+{
+identifiers
+{
+corpse
+human
+humanoid shape
+person
+shape
+slumped shape
+}
+desc
+{
+The decayed remains of what you suspect was once a person.
+Aside from the occassional strip of rotting flesh, all but bones remain.
+There really isn't much left of the corpse, but their clothes seem mostly intact.
+}
+examine=A humanoid shape is slumped into the corner of the cell.
+pickup=weapon_sharpbone
+pickuptext=You break off the last remaining rib.
+alreadypickedup=No intact bones remain, just rotten flesh and broken fragments.
+useon=interactable_corpse
+usetext=Use him for what? Dress him up and have a tea-party? You feel your sanity slipping away.
+usefailtext=Leave the poor sod alone, can't you see he's already in enough trouble?
+}
+
+
+//South cell stuff
+
+interactable_deadrat
+{
+name=a dead rat
+identifiers
+{
+body of rat
+body
+dead rat
+rat
+rat body
+}
+canpickup=1
+examine=The body of a rat lies in the middle of the cell.
+desc
+{
+The remains of a rat.
+Disgusting.. This rat died a long time ago.
+}
+usetype=1
+useon=interactable_deadrat
+usetext=For unknown reasons, you decide to eat the rat.
+usefailtext=You're not sure the rat would enjoy that. You'd ask, but you don't speak rodent.
+}
+
+interactable_lock_cellsouth
+{
+name=the flimsy lock
+identifiers
+{
+lock
+cell lock
+}
+examine=A lock holds the cell door shut tight.
+desc
+{
+A flimsy lock is all that stands in the way of you and the dark hallways beyond.
+This lock looks like it should have been replaced years ago. It doesn't look solid.
+}
+usetext=You effortlessly break the lock. This cell clearly hasn't been used in ages.
+usetype=2
+useon=interactable_lock_cellsouth
+unlocks=north
+}
+
+interactable_looserock_cellsouth
+{
+identifiers
+{
+loose rock
+rock
+stone
+ray of light
+light
+faint ray of light
+crack
+crack in the wall
+broken wall
+}
+examine=You see a faint ray of light shining through a crack in the wall.
+desc=This rock seems a little loose, leaving a crack in the wall.
+pickup=item_key_celleast
+pickuptext=Oh? A key was hidden under this rock.
+alreadypickedup=It looks like something was stashed here before.
+useon=interactable_lock_cellsouth
+usetype=2
+usefailtext=It's a rock, what use could it possibly have?
+}
+
+item_key_celleast
+{
+name=a key
+identifiers
+{
+key
+}
+desc=Engraved in the metal is the symbol of a bone.
+found=A key! Perhaps now you can get out of this place.
+examine=There's a remarkably shiny key on the floor.
+canpickup=1
+useon=interactable_lock_celleast
+usefailtext=It doesn't fit. Perhaps if you turn it 180 degrees twice?
+}
+
+
+//Northern cell stuff
+
+//red herring 1
+interactable_rope
+{
+name=a rope
+identifiers=rope
+desc=Sturdy rope, attached to a mechanism of sorts.
+examine=A rope hangs from the ceiling.
+canpickup=1
+usetext=Tired of being stuck here, you decide to hang yourself instead.
+usefailtext=You try hanging that from the rope, but what did you honestly expect would happen?
+useon=interactable_rope
+usetype=1
+}
+
+//red herring 2
+interactable_lever
+{
+name=a lever
+identifiers=lever
+desc=A wooden lever.
+examine=There's a lever on the wall.
+usetext=You pull the lever. An arrow shoots out and hits you in the chest.
+usetype=1
+useon=interactable_lever
+usefailtext=You throw it at the lever, but the lever is just not having it. Try pulling instead of pushing.
+}
+
+interactable_rottenfood
+{
+name=some rotten food
+identifiers
+{
+rotten food
+food
+spoiled food
+}
+examine=There is a plate with food near the door.
+desc
+{
+You're not sure if you want to eat that.
+It doesn't look very tasty.
+}
+canpickup=1
+usetype=1
+useon=interactable_rottenfood
+usetext=Having eaten the food, you feel ill and quite stupid.
+usefailtext=While you're all for adding spices, that doesn't really qualify as a spice.
+}
+
+
+//Dungeon stuff
+
+//red herring 3
+interactable_note
+{
+name=a hand-written note
+identifiers
+{
+note
+piece of paper
+paper
+}
+desc=It's titled "keepin hoomey lokked sefely: strong loks end mor". The rest is gibberish.
+examine=A piece of paper lies on the floor, it looks like a note of sorts.
+canpickup=1
+useon=interactable_note
+usetext=You try to read the paper, but it's all gibberish. Whoever wrote this isn't very intelligent.
+usefailtext=Angrily, you fold the paper into an airplane and toss it. It's not very effective.
+}
+
+//red herring 4
+interactable_weight
+{
+identifiers=weight
+desc
+{
+That looks heavy.
+Pure metal, this thing can't be lifted.
+}
+examine=There is a heavy metal weight in the corner of the room.
+usetext=As you attempt to lift the weight, you sprain something in your back.
+usefailtext=What good would that do? It's way too heavy.
+}
+
+interactable_lock_celleast
+{
+name=the cell door
+identifiers
+{
+lock
+cell lock
+}
+desc=Unlike the one from your own cell, this one is locked tight.
+examine=A sturdy lock holds the Eastern cell safely shut.
+usetext=Using the key, you unlock the Eastern cell.
+usetype=2
+unlocks=east
+}

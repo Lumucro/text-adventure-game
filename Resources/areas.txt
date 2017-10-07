@@ -1,0 +1,81 @@
+//Eastern cell
+
+cell_east
+{
+name=a cell with what seems to be a person in it
+desc=This appears to be a more solid cell. It reeks of death in here.
+objects
+{
+interactable_corpse
+interactable_rottenfood
+}
+west=dungeon
+firstenter=As you go into the cell, you spot something in the corner of your eye.
+}
+
+
+//Start area, Southern cell
+
+cell_south
+{
+name=a dark jail cell
+desc=You find yourself in a dark cell, engulfed in a foul odor.
+objects
+{
+interactable_deadrat
+interactable_lock_cellsouth
+interactable_looserock_cellsouth
+}
+north=!dungeon
+}
+
+
+//Northern cell
+
+cell_north
+{
+name=the northern cell
+desc=For a cell, this area is too clean. Something seems off.
+firstenter=As you enter, something startles you. You look up to see a rope hanging there.
+objects
+{
+interactable_rope
+interactable_lever
+}
+south=dungeon
+}
+
+
+//Exit room
+
+exit
+{
+name=the last room
+desc=This room connects the cells with the outside world.
+firstenter=A goblin emerges and blocks the way to the outside!
+east=dungeon
+objects
+{
+enemy_goblin
+}
+}
+
+
+//Dungeon
+
+dungeon
+{
+name=a dungeon
+desc=This seems to be a crudely-built dungeon.
+objects
+{
+interactable_weight
+interactable_note
+interactable_lock_celleast
+}
+ambient=What is that stench?
+south=cell_south
+east=!cell_east
+north=cell_north
+west=exit
+}
